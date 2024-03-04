@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.BianjiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.BianjiEntity" id="bianjiMap">
+        <result property="biaoti" column="biaoti"/>
+        <result property="jianjie" column="jianjie"/>
+        <result property="neirong" column="neirong"/>
+        <result property="fabushijian" column="fabushijian"/>
+        <result property="fengmian" column="fengmian"/>
+        <result property="zhanghao" column="zhanghao"/>
+        <result property="xingming" column="xingming"/>
+        <result property="clicktime" column="clicktime"/>
+        <result property="clicknum" column="clicknum"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.BianjiVO" >
+		SELECT * FROM bianji  bianji         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.BianjiVO" >
+		SELECT  bianji.* FROM bianji  bianji
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.BianjiView" >
+
+		SELECT  bianji.* FROM bianji  bianji 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.BianjiView" >
+		SELECT * FROM bianji  bianji <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
